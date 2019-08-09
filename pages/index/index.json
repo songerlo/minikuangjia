@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "authorization": "../../components/authorization/authorization"
+  }
+}

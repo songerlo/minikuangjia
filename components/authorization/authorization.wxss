@@ -1,0 +1,51 @@
+/* components/Authorization/authorization.wxss */
+.authorization_container{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9000;
+    background-color: rgba(0,0,0,0.65);
+}
+.authorization_layer{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    width: 80%;
+    height: 328rpx;
+    background: #fff;
+    border-radius: 10rpx;
+}
+.authorization_content{
+    width: 100%;
+    height: 211rpx;
+    display: table;
+}
+.authorization_content{
+    display:table-cell;
+    vertical-align:middle;
+    padding:0 30rpx 0 30rpx;
+    text-indent:79rpx;
+}
+.authorization_btn{
+    width: 100%;
+    height: 115rpx;
+    border-top: 2rpx solid #e5e5e5;
+    border-radius: 0 0 10rpx 10rpx!important;
+}
+.authorization_btn button{
+    width: 100%;
+    height: 115rpx;
+    line-height: 115rpx;
+    color: #3CC51F;
+    font-size: 43rpx;
+    background: #fff!important;
+    border: none!important;
+    border-radius: 0 0 10rpx 10rpx!important;
+    margin: 0!important;
+    padding: 0 !important;
+}

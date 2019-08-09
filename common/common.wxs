@@ -1,0 +1,61 @@
+/**
+ * 使用说明:
+ * wxs是小程序的一套脚本语言
+ * 通过使用wxs文件，实现在wxml页面中调用自定义的JavaScript函数
+ * 
+ * 使用方式:
+ * 1. 创建函数导出函数
+    var filters = {
+      numberToFix: function (value) {
+        return value.toFixed(0)
+      }
+    }
+    module.exports = {
+      numberToFix: filters.numberToFix
+    }
+ * 2.在需要使用numberToFix函数的页面引入numbertofix.wxs文件
+ * <wxs module="filters" src="../../common/common.wxs"></wxs>
+ * 3.调用即可
+ * <text class="vote-item-data-percent">{{filters.numberToFix(num)}}</text>
+ */
+var filters = {
+  // 求两个时间戳的差
+  differ: function (today, time) {
+    var temp = Math.floor((today / 1000) - time);
+    var day = Math.floor(temp / 86400);
+    var hour = Math.floor(temp % 86400 / 3600);
+    if (day) {
+      return day + '天前';
+    } else {
+      if (hour) {
+        return hour + '小时前';
+      } else {
+        return '刚刚';
+      }
+    }
+  },
+  // 判断数组是否存在某一个元素
+  judgeArr: function (arr, element) {
+    if (arr.indexOf(element) >= 0) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+  // 格式化时间
+  formatTime: function (time) {
+    var m = Math.floor((time / 60 % 60)) < 10 ? '0' + Math.floor((time / 60 % 60)) : Math.floor((time / 60 % 60));
+    var s = Math.floor((time % 60)) < 10 ? '0' + Math.floor((time % 60)) : Math.floor((time % 60));
+    return m + ":" + s;
+  },
+  // 取整
+  numberToFix: function (value) {
+    return value.toFixed(0)
+  }
+}
+module.exports = {
+  differ: filters.differ,
+  judgeArr: filters.judgeArr,
+  formatTime: filters.formatTime,
+  numberToFix: filters.numberToFix
+}

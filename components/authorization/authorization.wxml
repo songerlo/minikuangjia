@@ -1,0 +1,35 @@
+<!--components/Authorization/authorization.wxml-->
+<view class="authorization_container" hidden = "{{isAuthorized}}">
+    <view class="authorization_layer">
+        <view class="authorization_content">
+            <view class="inner_text">
+                你好，欢迎来到小程序框架，点击“确定”体验更多精彩
+            </view>
+        </view>
+        <view class="authorization_btn">
+            <button wx:if="{{canIUse}}" open-type="getUserInfo" bindtap="_hide" bindgetuserinfo="_authorization_allow" hover-class="defaultTap">确定</button>
+            <view wx:else>请升级微信版本</view>
+        </view>
+    </view>
+</view>
+<!-- 使用说明：
+    简介：本组件属于公用组件，主要用来引导用户授权操作的。
+    描述：在请求返回未获取用户标识状态时，如不能获取用户信息，需要在发出请求的该页面提示用户进行授权操作。
+    使用方式（授权组件为自定义组件，需要在每一个页面引入该组件）：
+        页面的wxml引入：<authorization id = "authorization"/>
+        页面的js增加：
+            onLoad: function (options) {
+                let __token__ = wx.getStorageSync('__token__');
+                if (__token__) {
+                    // todo
+                } else {
+                    // 弹出授权窗口
+                    this.selectComponent("#authorization").setIsShow();
+                }
+            }
+        页面的json增加：
+            {
+                "usingComponents": {
+                "authorization": "../../components/authorization/authorization"
+            }
+-->
